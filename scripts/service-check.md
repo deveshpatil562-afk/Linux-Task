@@ -54,35 +54,27 @@ Example services:
 **📜 BASH SCRIPT**
 
 
+```bash
 #!/bin/bash
 
-#This is a script to check if any service is running or not.
-#If the service is not running, it will start the service.
-
+# This is a script to check if any service is running or not.
+# If the service is not running, it will start the service.
 
 read -p "Enter the name of service: " service
-#Takes the service name as input from the user.
+# Takes the service name as input from the user.
 
 status=$(systemctl is-active $service)
-#Checks the current status of the service and stores it in a variable.
+# Checks the current status of the service and stores it in a variable.
 
 if [ $status = active ]; then
     echo "Service is in active state!!"
-    # Printed when the service is already running.
 else
     echo "Service is not running Currently let me start the service"
-    # Printed when the service is stopped.
-
     systemctl start "$service"
-    # Starts the specified Linux service.
-
     new_status=$(systemctl status $service | grep "Active:")
-    # Fetches and filters the active status line.
-
     echo "Service has been started :))"
-    # Confirmation message after starting the service.
 fi
-#Ends the if-else block.
+
 
 ---
 
