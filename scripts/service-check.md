@@ -74,8 +74,7 @@ else
     new_status=$(systemctl status $service | grep "Active:")
     echo "Service has been started :))"
 fi
-
-
+end```
 
 ---
 
