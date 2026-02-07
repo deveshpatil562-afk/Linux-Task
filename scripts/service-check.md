@@ -1,107 +1,134 @@
-# 🛠️ Linux Service Status Checker & Auto-Starter (Bash Script)
+# 🛠️ Linux Service Status Checker & Auto Starter (Bash Script)
 
-This Bash script helps you **check whether a Linux service is running** and **automatically starts it if it’s not**.  
-It’s simple, practical, and perfect for **Linux beginners / freshers** who want hands-on scripting experience.
+This project contains a **simple yet powerful Bash script** that checks whether a Linux service is running.  
+If the service is **not running**, the script **automatically starts it**.
 
----
+This project is designed especially for **freshers and Linux beginners** to understand real-world Bash scripting and Linux service management.
 
-## 📌 What This Script Does
+================================================================
+📌 WHAT THIS SCRIPT DOES
+================================================================
 
-- Asks the user for a **service name**
-- Checks the **current status** of the service
+- Prompts the user to enter a **Linux service name**
+- Checks whether the service is **running or not**
 - If the service is:
-  - ✅ **Running** → informs the user
-  - ❌ **Not running** → starts the service automatically
-- Confirms that the service has been started successfully
+  - ✅ **Active** → Displays a confirmation message
+  - ❌ **Inactive** → Starts the service automatically
+- Confirms that the service has been started
 
----
+================================================================
+🎯 WHY THIS SCRIPT IS USEFUL
+================================================================
 
-## 🧠 Why This Script Is Useful
+- Automates service checking
+- Reduces manual work for administrators
+- Helps freshers learn:
+  - Bash scripting basics
+  - Linux services
+  - Conditional logic (if-else)
+  - systemctl command usage
+- Can be used as a **resume / GitHub project**
 
-- Avoids manual service checks
-- Saves time for system administrators
-- Helps beginners understand:
-  - `systemctl`
-  - condition checks
-  - user input in Bash
-- Can be used in **real-world Linux servers**
-
----
-
-## 🖥️ Prerequisites
+================================================================
+🧠 PREREQUISITES
+================================================================
 
 Before running this script, make sure:
 
 - You are using a **Linux system with systemd**
 - You have **sudo/root access**
-- The service you want to check exists
+- The service exists on your system
 
-Examples of services:
-- `nginx`
-- `apache2`
-- `mysql`
-- `ssh`
-- `docker`
+Example services:
+- postfix
+- nginx
+- ssh
+- docker
+- mysql
 
----
-==============================
- SAMPLE OUTPUT
-==============================
-Enter the name of service: postfix
-Service is not running. Let me start the service...
-Service has been started successfully :)
-Active: active (running)
+================================================================
+📜 BASH SCRIPT
+================================================================
 
-==============================
- BASH SCRIPT
-==============================
 #!/bin/bash
-# Uses Bash shell to execute this script.
+####################################################################
+# This is a script to check if any service is running or not.
+# If the service is not running, it will start the service.
+####################################################################
 
 read -p "Enter the name of service: " service
-# Takes service name input from the user.
+# Takes the service name as input from the user.
 
 status=$(systemctl is-active $service)
-# Checks whether the service is active or not.
+# Checks the current status of the service and stores it in a variable.
 
-if [ "$status" = "active" ]; then
+if [ $status = active ]; then
     echo "Service is in active state!!"
-    # Prints message if service is already running.
+    # Printed when the service is already running.
 else
-    echo "Service is not running. Let me start the service..."
-    # Prints message when service is stopped.
+    echo "Service is not running Currently let me start the service"
+    # Printed when the service is stopped.
 
     systemctl start "$service"
     # Starts the specified Linux service.
 
-    new_status=$(systemctl status "$service" | grep "Active:")
+    new_status=$(systemctl status $service | grep "Active:")
     # Fetches and filters the active status line.
 
-    echo "Service has been started successfully :)"
-    # Prints success message.
-
-    echo "$new_status"
-    # Displays updated service status.
+    echo "Service has been started :))"
+    # Confirmation message after starting the service.
 fi
 # Ends the if-else block.
 
-==============================
- COMMAND EXPLANATION TABLE
-==============================
+================================================================
+🔍 HOW THE SCRIPT WORKS (STEP-BY-STEP)
+================================================================
+
+1. Script starts using the **Bash shell**
+2. User enters the **service name**
+3. systemctl is-active checks the service status
+4. Output is stored in a variable
+5. if-else logic checks the service state
+6. If stopped, the service is started automatically
+7. Success message is displayed
+
+================================================================
+🖥️ SAMPLE OUTPUT
+================================================================
+
+Enter the name of service: postfix
+Service is not running Currently let me start the service
+Service has been started :))
+
+================================================================
+📋 COMMAND EXPLANATION TABLE (FOR FRESHERS)
+================================================================
 
 | Command / Syntax | Description | Why It Is Used |
 |------------------|-------------|----------------|
-| #!/bin/bash | Specifies Bash as the script interpreter. | Ensures script runs using Bash shell. |
+| #!/bin/bash | Specifies Bash as the script interpreter. | Ensures the script runs using Bash. |
 | read -p | Reads user input with a prompt message. | Accepts service name dynamically. |
-| systemctl | systemd tool to manage Linux services. | Used to control service states. |
-| systemctl is-active <service> | Checks if a service is running. | Determines whether restart is needed. |
-| status=$(...) | Stores command output in a variable. | Enables condition checking. |
-| if [ condition ] | Conditional execution block. | Adds decision-making logic. |
-| [ "$status" = "active" ] | Compares service state with active. | Confirms running service. |
-| echo | Prints output to terminal. | Displays messages to user. |
+| systemctl | Linux utility to manage services. | Controls service operations. |
+| systemctl is-active <service> | Checks if a service is running. | Determines service status. |
+| status=$(...) | Stores command output in a variable. | Used for conditional logic. |
+| if [ condition ] | Executes code when condition is true. | Decision-making logic. |
+| [ $status = active ] | Compares service status with active. | Confirms service is running. |
+| echo | Prints output to terminal. | Displays messages to the user. |
 | else | Executes when if condition fails. | Handles stopped service case. |
-| systemctl start <service> | Starts a Linux service. | Automatically recovers service. |
-| systemctl status <service> | Shows detailed service info. | Verifies service startup. |
-| grep "Active:" | Filters Active status line. | Improves output readability. |
-| new_status=$(...) | Stores filtered status output. | Displays updated status. |
-| fi | Ends conditional block. | Marks logic completion. |
+| systemctl start <service> | Starts the Linux service. | Automatically recovers service. |
+| systemctl status <service> | Shows detailed service information. | Verifies service state. |
+| grep "Active:" | Filters Active status line. | Cleaner and readable output. |
+| fi | Ends the if-else block. | Marks completion of logic. |
+
+================================================================
+🎓 SKILLS GAINED FROM THIS SCRIPT
+================================================================
+
+- Bash scripting fundamentals
+- Linux service management
+- Automation basics
+- DevOps foundation concepts
+
+================================================================
+END OF FILE
+================================================================
