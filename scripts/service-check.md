@@ -48,24 +48,23 @@ Examples of services:
 ## 📜 The Script
 
 #!/bin/bash
-# ==============================================================
-# Script Name : service_check.sh
-# Purpose     : Check if a Linux service is running.
-#               If not running, automatically start the service.
-# Author      : Devesh Patil
-# ==============================================================
+#==============================================================
+#Purpose     : Check if a Linux service is running.
+              If not running, automatically start the service.
+#Author      : Devesh Patil
+#==============================================================
 
 
-# Ask the user to enter the service name (example: nginx, ssh, docker)
+#Ask the user to enter the service name (example: nginx, ssh, docker)
 read -p "Enter the name of service: " service
 
 
-# Check the current status of the service using systemctl
-# Possible outputs: active, inactive, failed, unknown
+#Check the current status of the service using systemctl
+#Possible outputs: active, inactive, failed, unknown
 status=$(systemctl is-active $service)
 
 
-# If the service status is "active"
+#If the service status is "active"
 if [ "$status" = "active" ]; then
         # Print message if service is already running
         echo "✅ Service is already running and active!"
