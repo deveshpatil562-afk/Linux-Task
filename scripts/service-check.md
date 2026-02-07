@@ -5,9 +5,9 @@ If the service is **not running**, the script **automatically starts it**.
 
 This project is designed especially for **freshers and Linux beginners** to understand real-world Bash scripting and Linux service management.
 
-================================================================
+
 📌 WHAT THIS SCRIPT DOES
-================================================================
+
 
 - Prompts the user to enter a **Linux service name**
 - Checks whether the service is **running or not**
@@ -16,9 +16,9 @@ This project is designed especially for **freshers and Linux beginners** to unde
   - ❌ **Inactive** → Starts the service automatically
 - Confirms that the service has been started
 
-================================================================
+
 🎯 WHY THIS SCRIPT IS USEFUL
-================================================================
+
 
 - Automates service checking
 - Reduces manual work for administrators
@@ -29,9 +29,9 @@ This project is designed especially for **freshers and Linux beginners** to unde
   - systemctl command usage
 - Can be used as a **resume / GitHub project**
 
-================================================================
-🧠 PREREQUISITES
-================================================================
+
+**🧠 PREREQUISITES**
+
 
 Before running this script, make sure:
 
@@ -46,21 +46,21 @@ Example services:
 - docker
 - mysql
 
-================================================================
-📜 BASH SCRIPT
-================================================================
+
+**📜 BASH SCRIPT**
+
 
 #!/bin/bash
-####################################################################
-# This is a script to check if any service is running or not.
-# If the service is not running, it will start the service.
-####################################################################
+
+#This is a script to check if any service is running or not.
+#If the service is not running, it will start the service.
+
 
 read -p "Enter the name of service: " service
-# Takes the service name as input from the user.
+#Takes the service name as input from the user.
 
 status=$(systemctl is-active $service)
-# Checks the current status of the service and stores it in a variable.
+#Checks the current status of the service and stores it in a variable.
 
 if [ $status = active ]; then
     echo "Service is in active state!!"
