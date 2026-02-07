@@ -17,6 +17,7 @@ This project is designed especially for **freshers and Linux beginners** to unde
   - ❌ **Inactive** → Starts the service automatically
 - Confirms that the service has been started
 
+---
 
 🎯 WHY THIS SCRIPT IS USEFUL
 
@@ -30,6 +31,7 @@ This project is designed especially for **freshers and Linux beginners** to unde
   - systemctl command usage
 - Can be used as a **resume / GitHub project**
 
+---
 
 **🧠 PREREQUISITES**
 
@@ -47,6 +49,7 @@ Example services:
 - docker
 - mysql
 
+---
 
 **📜 BASH SCRIPT**
 
@@ -79,11 +82,12 @@ else
     echo "Service has been started :))"
     # Confirmation message after starting the service.
 fi
-# Ends the if-else block.
+#Ends the if-else block.
 
-================================================================
-🔍 HOW THE SCRIPT WORKS (STEP-BY-STEP)
-================================================================
+---
+
+**🔍 HOW THE SCRIPT WORKS (STEP-BY-STEP)**
+
 
 1. Script starts using the **Bash shell**
 2. User enters the **service name**
@@ -93,17 +97,19 @@ fi
 6. If stopped, the service is started automatically
 7. Success message is displayed
 
-================================================================
-🖥️ SAMPLE OUTPUT
-================================================================
+---
+
+**🖥️ SAMPLE OUTPUT**
+
 
 Enter the name of service: postfix
 Service is not running Currently let me start the service
 Service has been started :))
 
-================================================================
-📋 COMMAND EXPLANATION TABLE (FOR FRESHERS)
-================================================================
+---
+
+**📋 COMMAND EXPLANATION TABLE (FOR FRESHERS)**
+
 
 | Command / Syntax | Description | Why It Is Used |
 |------------------|-------------|----------------|
@@ -121,15 +127,3 @@ Service has been started :))
 | grep "Active:" | Filters Active status line. | Cleaner and readable output. |
 | fi | Ends the if-else block. | Marks completion of logic. |
 
-================================================================
-🎓 SKILLS GAINED FROM THIS SCRIPT
-================================================================
-
-- Bash scripting fundamentals
-- Linux service management
-- Automation basics
-- DevOps foundation concepts
-
-================================================================
-END OF FILE
-================================================================
