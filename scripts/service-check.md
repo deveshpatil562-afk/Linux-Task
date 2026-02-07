@@ -73,7 +73,7 @@ fi
 ## 📋 Command Explanation Table
 
 | Command / Syntax | Description | Why It Is Used |
-|------------------|------------|----------------|
+|-----------------|-------------|----------------|
 | `#!/bin/bash` | Tells the system to execute the script using the Bash shell. | Ensures the script runs correctly in a Bash environment. |
 | `read -p` | Reads input from the user and displays a prompt message. | Allows the user to enter the service name dynamically. |
 | `systemctl` | A systemd command used to manage Linux services. | Used to check, start, stop, and manage system services. |
@@ -87,6 +87,6 @@ fi
 | `systemctl status <service>` | Displays detailed information about a service. | Used to verify the service start operation. |
 | `grep "Active:"` | Filters output and displays lines containing `Active:`. | Shows only the important service status line. |
 | `new_status=$(...)` | Stores filtered command output into a variable. | Helps display the updated service state. |
-| `fi` | Ends the `if-else` conditional block. | Marks completion of the decision logic. |
+| `fi` | Ends the if-else conditional block. | Marks completion of the decision logic. |
 
 
