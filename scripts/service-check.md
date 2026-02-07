@@ -54,6 +54,8 @@ Example services:
 **📜 BASH SCRIPT**
 
 
+## 📜 Bash Script
+
 ```bash
 #!/bin/bash
 
@@ -61,10 +63,8 @@ Example services:
 # If the service is not running, it will start the service.
 
 read -p "Enter the name of service: " service
-# Takes the service name as input from the user.
 
 status=$(systemctl is-active $service)
-# Checks the current status of the service and stores it in a variable.
 
 if [ $status = active ]; then
     echo "Service is in active state!!"
@@ -74,6 +74,7 @@ else
     new_status=$(systemctl status $service | grep "Active:")
     echo "Service has been started :))"
 fi
+
 
 
 ---
