@@ -67,3 +67,26 @@ else
         new_status=$(systemctl status $service | grep "Active:")
         echo "Service has been started successfully :)"
 fi
+
+---
+
+## 📋 Command Explanation Table
+
+| Command / Syntax | Description | Why It Is Used |
+|------------------|------------|----------------|
+| `#!/bin/bash` | Tells the system to execute the script using the Bash shell. | Ensures the script runs correctly in a Bash environment. |
+| `read -p` | Reads input from the user and displays a prompt message. | Allows the user to enter the service name dynamically. |
+| `systemctl` | A systemd command used to manage Linux services. | Used to check, start, stop, and manage system services. |
+| `systemctl is-active <service>` | Checks whether a service is currently running. | Helps determine if the service needs to be started. |
+| `status=$(...)` | Stores the output of a command into a variable. | Allows reuse of command output in conditions. |
+| `if [ condition ]` | Executes commands only if the condition is true. | Used for decision-making in the script. |
+| `[ "$status" = "active" ]` | Compares the service status with the word `active`. | Confirms whether the service is running. |
+| `echo` | Prints text to the terminal. | Displays user-friendly messages and status updates. |
+| `else` | Executes when the `if` condition is false. | Handles the case when the service is not running. |
+| `systemctl start <service>` | Starts the specified Linux service. | Automatically brings the service up if it is stopped. |
+| `systemctl status <service>` | Displays detailed information about a service. | Used to verify the service start operation. |
+| `grep "Active:"` | Filters output and displays lines containing `Active:`. | Shows only the important service status line. |
+| `new_status=$(...)` | Stores filtered command output into a variable. | Helps display the updated service state. |
+| `fi` | Ends the `if-else` conditional block. | Marks completion of the decision logic. |
+
+
