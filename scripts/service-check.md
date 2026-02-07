@@ -96,6 +96,13 @@ Service has been started :))
 
 ---
 
+## Output:
+
+<img width="635" height="145" alt="serviceoutput" src="https://github.com/user-attachments/assets/a0d04427-d67e-4ea7-9d43-c4600362eafd" />
+<img width="1032" height="496" alt="servicechecker" src="https://github.com/user-attachments/assets/c2163404-b544-4200-a4b7-1bcaa59fc93a" />
+
+---
+
 ## 📜 Bash Script
 
 ```bash
@@ -117,10 +124,6 @@ else
     echo "Service has been started :))"
 fi
 
----
-
-<img width="635" height="145" alt="serviceoutput" src="https://github.com/user-attachments/assets/a0d04427-d67e-4ea7-9d43-c4600362eafd" />
-<img width="1032" height="496" alt="servicechecker" src="https://github.com/user-attachments/assets/c2163404-b544-4200-a4b7-1bcaa59fc93a" />
 
 
 
