@@ -5,6 +5,7 @@ If the service is **not running**, the script **automatically starts it**.
 
 This project is designed especially for **freshers and Linux beginners** to understand real-world Bash scripting and Linux service management.
 
+---
 
 📌 WHAT THIS SCRIPT DOES
 
