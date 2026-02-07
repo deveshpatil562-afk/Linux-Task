@@ -61,24 +61,46 @@ Before running this script, make sure:
 
 **📋 COMMAND EXPLANATION TABLE (FOR FRESHERS)**
 
-Command / Syntax	Description	Why It Is Used
-#!/bin/bash	Specifies Bash as the script interpreter.	Ensures the script runs using Bash.
-df -h	Displays disk usage in human-readable format.	Checks filesystem space usage.
-/mnt/app-data	Target directory being monitored.	Monitors specific mount point.
-grep -v "Filesystem"	Removes the header line from df output.	Keeps output clean for processing.
-awk '{print $5}'	Extracts the 5th column (usage percentage).	Retrieves disk usage value.
-tr -d '%'	Removes the % symbol from output.	Allows numeric comparison.
-space=$(...)	Stores command output in a variable.	Used for condition checking.
-if [ "$space" -ge 33 ]	Checks if disk usage is greater than or equal to 33%.	Triggers disk alert condition.
-echo	Prints output text.	Displays status or alert message.
-mail -s	Sends an email with a subject line.	Sends disk usage alert.
-"Disk Alert: /mnt/app-data"	Subject of the alert email.	Clearly identifies alert reason.
-else	Executes when condition is false.	Handles safe disk usage case.
-fi	Ends the if-else block.	Marks completion of logic.
+
+| Command / Syntax           | Description                                   | Why It Is Used                          |
+|---------------------------|-----------------------------------------------|-----------------------------------------|
+| !/bin/bash                | Specifies Bash as the script interpreter.     | Ensures the script runs using Bash.     |
+| df -h /mnt/app-data       | Displays disk usage for the mount point.      | Checks space usage of target directory. |
+| grep -v "Filesystem"      | Removes the header line from df output.       | Keeps output clean for processing.      |
+| awk '{print $5}'          | Extracts the 5th column (usage percentage).   | Retrieves disk usage value.             |
+| tr -d '%'                 | Removes the % symbol from output.             | Enables numeric comparison.             |
+| space=$(...)              | Stores command output in a variable.          | Used for conditional logic.             |
+| if [ "$space" -ge 33 ]    | Checks if disk usage is ≥ 33%.                | Triggers disk alert condition.          |
+| echo                      | Prints output message.                        | Displays alert or status message.       |
+| mail -s                   | Sends an email with a subject.                | Sends disk usage alert.                 |
+| else                      | Executes when condition fails.                | Handles normal disk usage case.         |
+| fi                        | Ends the if-else block.                       | Marks completion of logic.              |
+
 
 ## 🖥️ Sample Output
 
 <img width="1177" height="315" alt="diskalert" src="https://github.com/user-attachments/assets/50ff1afc-c27b-42e6-87c4-47e23d5eb96a" />
 <img width="1132" height="487" alt="mailoutput" src="https://github.com/user-attachments/assets/0242d20c-b73d-4c55-b46c-d94e31c989e5" />
+
+---
+
+## 📜 Bash Script
+
+```bash
+#!/bin/bash
+
+###################################################
+#This is script to check space and send mail
+#if disk usage exceeds the defined threshold
+###################################################
+
+space=$(df -h /mnt/app-data | grep -v "Filesystem" | awk '{print $5}' | tr -d '%')
+
+if [ "$space" -ge 33 ]; then
+    echo "Filesystem usage is High: $space%" | mail -s "Disk Alert: /mnt/app-data" deveshpatil562@gmail.com
+else
+    echo "Filesystem usage is fine"
+fi
+
 
 
